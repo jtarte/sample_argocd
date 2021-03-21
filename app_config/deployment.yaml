@@ -1,0 +1,34 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sampleapp
+  labels:
+    purpose: sample
+spec:
+  selector:
+    matchLabels:
+      app: sampleapp
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: sampleapp
+    spec:
+      containers:
+        - name: sampleapp
+          image: jtarte/sampleapp:latest
+          imagePullPolicy: "Always"
+          ports:
+            - containerPort: 8080
+          env:
+            - name: APP_NAME
+              valueFrom:
+                configMapKeyRef:
+                  name: sampleapp
+                  key: APP_NAME
+            - name: APP_VERSION
+              valueFrom:
+                configMapKeyRef:
+                  name: sampleapp
+                  key: APP_VERSION  

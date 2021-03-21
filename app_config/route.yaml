@@ -1,0 +1,16 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: sampleapp
+  labels:
+    app: sampleapp
+spec:
+  host: >-
+    sampleapp-test-app.mycluster-fra02-c3c-16x16-eba6071379d98d950bd3c79153349ac8-0000.eu-de.containers.appdomain.cloud
+  to:
+    kind: Service
+    name: sampleapp
+    weight: 100
+  port:
+    targetPort: http
+  wildcardPolicy: None

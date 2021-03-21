@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: mysample-mq
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: mq-test
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: MQ
+    repoURL: https://github.com/jtarte/sample_argocd
+    targetRevision: master
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+  sync:
+    comparedTo:
+      destination:
+        namespace: mq-test
+        server: https://kubernetes.default.svc
+      source:
+        path: MQ
+        repoURL: https://github.com/jtarte/sample_argocd
+        targetRevision: master

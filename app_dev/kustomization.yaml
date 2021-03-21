@@ -1,0 +1,10 @@
+bases:
+- github.com/jtarte/sample_argocd/app_config?ref=master
+- namespace.yaml
+patchesJson6902:
+  - target:
+      version: v1
+      group: route.openshift.io
+      kind: Route
+      name: sampleapp
+    path: route.yaml

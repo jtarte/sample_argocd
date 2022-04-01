@@ -1,7 +1,6 @@
 bases:
 - github.com/jtarte/sample_argocd/app_config?ref=master
 #- namespace.yaml
-- gitops-rb.yaml
 patchesJson6902:
   - target:
       version: v1

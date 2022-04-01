@@ -3,3 +3,4 @@ resources:
 - service.yaml
 - deployment.yaml
 - route.yaml
+- gitops-rb.yaml

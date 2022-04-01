@@ -2,7 +2,6 @@ kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: test-app-dev-argocd
-  namespace: test-app-dev
 subjects:
   - kind: ServiceAccount
     name: openshift-gitops-argocd-application-controller
